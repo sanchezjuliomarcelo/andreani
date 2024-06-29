@@ -1,0 +1,68 @@
+body {
+  background-color: #f0f0f0;
+}
+
+.logo-andreani {
+  width: 200px;
+  height: auto;
+  float: right;
+  padding: 15px;
+}
+
+.boton-buscador {
+  background: #007bff;
+  font-size: 18px;
+  color: #fff;
+  min-height: 40px;
+  min-width: 40px;
+  border-radius: 0 9px 9px 0;
+  transition: all 0.5s ease-out !important;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.bg-dark {
+  background-color: #456b88 !important;
+}
+
+@media (max-width: 801px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+
+  img.logo-andreani {
+    max-width: 150px !important;
+    float: left !important;
+  }
+}
+
+form {
+  text-align: center;
+  width: 48%;
+  margin: auto;
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-group {
+  width: 48%;
+}
+
+#tokenContainer {
+  max-width: 30%;
+  margin: 20px auto;
+}
+
+#tokenDisplay {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+  word-wrap: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <link rel="import" href="datos/tabla.html" />
+  <title>Generador de Guías de despacho correo Andreani</title>
+</head>
+
+<body class="container mt-5">
+  <div class="container">
+    <div class="jumbotron bg-dark text-white">
+      <div class="row">
+        <div class="col-lg-8 col-md-6">
+          <h1 class="display-4 pl-4">Etiquetas de envío</h1>
+          <p class="lead pl-4">
+            Generador de Guías de despacho correo Andreani </strong>
+          </p>
+          <br />
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <img class="logo-andreani" src="img/isologo-vector.svg" alt="Logo de Andreani" />
+        </div>
+      </div>
+      <p id="fecha"></p>
+      <form>
+        <!--seleccionar servicio-->
+        <h3>Seleccione el servicio</h3>
+        <label for="contrato">Contrato</label>
+        <select class="form-control" name="contrato" id="contrato">
+          <option value="Seleccionar">Seleccionar</option>
+          <option value="Contrato-1">Envio a Domicilio</option>
+          <option value="Contrato-2">Envío a Sucursal</option>
+          <option value="Contrato-3">Envio a Domicilio Express</option>
+          <option value="Contrato-4">Envio a Domicilio Bigger</option>
+          <option value="Contrato-5">Inversa a Domicilio</option>
+        </select>
+
+        <!--completar destinatario-->
+        <h3>Destinatario</h3>
+        <div class="form-container">
+          <div class="form-group">
+            <label for="CodigoPostal">Código Postal:</label>
+            <input type="text" class="form-control" name="CodigoPostal" id="CodigoPostal"
+              oninput="buscarPorCodigoPostal()" />
+          </div>
+          <div class="form-group">
+            <label for="Calle">Calle:</label>
+            <input type="text" class="form-control" name="Calle" id="Calle" required />
+          </div>
+          <div class="form-group">
+            <label for="Numero">Numero:</label>
+            <input type="text" class="form-control" name="Numero" id="Numero" required />
+          </div>
+          <div class="form-group">
+            <label for="Localidad">Localidad:</label>
+            <div id="LocalidadContainer">
+              <input type="text" class="form-control" name="Localidad" id="Localidad" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Provincia">Provincia:</label>
+            <input type="text" class="form-control" name="Provincia" id="Provincia" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Pais">Pais:</label>
+          <input type="text" class="form-control" name="Pais" id="Pais" value="Argentina" />
+        </div>
+
+        <!--bulto a despachar-->
+        <h3>Paquete</h3>
+        <div class="form-group">
+          <label for="Peso">Peso (Gramos):</label>
+          <input type="number" step="0.01" class="form-control" name="Peso" id="Peso" oninput="buscarPorCodigoPostal()"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="Largo">Largo (cm):</label>
+          <input type="number" class="form-control" name="Largo" id="Largo" required />
+        </div>
+        <div class="form-group">
+          <label for="Ancho">Ancho (cm):</label>
+          <input type="number" class="form-control" name="Ancho" id="Ancho" required />
+        </div>
+        <div class="form-group">
+          <label for="Alto">Alto (cm):</label>
+          <input type="number" class="form-control" name="Alto" id="Alto" required />
+        </div>
+        <div class="form-group">
+          <label for="Valor_declarado">Valor declarado:</label>
+          <input type="number" step="0.01" class="form-control" name="Valor_declarado" id="Valor_declarado" required />
+        </div>
+
+        <!-- calculadora para el Volumen -->
+        <h3>volumen: <span id="volumen-calculado">0</span></h3>
+        <h3>costo de Flete: <span id="precio-calculado">0</span></h3>
+
+        <!-- Botones -->
+        <button type="submit" class="btn btn-primary" id="enviar">Enviar</button>
+        <a href="datos/tabla.html" class="btn btn-primary" id="irALaTabla">Ir a la Tabla</a>
+        <a href="datos/origen.html" class="btn btn-primary" id="origen">Origen</a>
+        <a href="datos/token.html" class="btn btn-primary ml-2" id="token">Token</a>
+    </div>
+    </form>
+
+    <script src="js/index.js"></script>
+    <script src="js/fecha.js"></script>
+    <script src="js/localidades.js"></script>
+    <script src="js/tabla.js"></script>
+    <script src="js/tabla2.js"></script>
+    <script src="js/api.js"></script>
+</body>
+
+</html>
